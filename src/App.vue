@@ -1,5 +1,3 @@
-<!-- 3-12 flex布局+man-width和min-width响应式布局 -->
-<!-- TODO: 利用计算属性图片懒加载 -->
 <template>
     <div id="app">
         <!-- 页面标题 -->
@@ -27,7 +25,7 @@
 
 <script>
 // 注意接口在./config/index.js中proxyTable代理中rewrite：、/api对应http://v.juhe.cn
-const juheBaseUrl = '/api/toutiao/index?type=';     
+const juheBaseUrl = '/api/toutiao/index?type=';
 const APIkey = '2b4ea65cb2932dd7491382960699bc17';
 // 获取url的函数
 let buildUrl = keywords => juheBaseUrl + keywords + '&key=' + APIkey;
