@@ -1,8 +1,8 @@
-Vue/axios打造资讯类网站
+多终端响应式资讯类网站
 ===
 1、项目介绍
 ---
-本项目使用Vue-cli脚手架构建单页资讯网页，利用axios从免费API接口获取资讯，实时更新。
+基于flex布局+media query的多终端响应式设计；使用Ajax技术（axios）从网络免费API接口获取新闻数据，JavaScript DOM操作和Vue计算属性方式实现新闻卡片的懒加载。
 
 2、程序源码
 ---
@@ -20,7 +20,36 @@ Vue/axios打造资讯类网站
 
 3、技术运用
 ---
-### 3.1. axios跨域请求
+### 3.1. 响应式设计
+采用flex布局结合媒体查询media query,实现PC端和移动端的响应式设计。
+```css
+/* 新闻卡片盒子 */   
+.news-card {
+	margin: 0 0 20px 0;
+	border: 1px solid #d1d0ce;
+}
+@media screen and (max-width: 414px) {
+    /*手机端单栏新闻卡片居中*/
+    #news-container {
+        justify-content: center;
+    }
+    .news-card {
+        flex: 0 1 90%;  /* 手机端单栏 */
+    }
+}
+@media screen and (min-width: 415px) and (max-width: 1024px) {
+    .news-card {
+        flex: 0 1 45%;  /* pad端双栏 */
+    }
+}
+@media screen and (min-width: 1025px) {
+    .news-card {
+        flex: 0 1 30%;  /* PC端双栏 */
+    }
+}
+```
+
+### 3.2. axios跨域请求
 
 从聚合数据免费API接口获取JSON。跨域请求，axios不支持跨域。学习了解跨域请求的多种方法，包括JSONP、CORS、HTML5的window。postMessage方法。
 
