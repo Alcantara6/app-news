@@ -24,6 +24,10 @@
 </template>
 
 <script>
+var viewWidth = document.documentElement.clientWidth || document.body.clientWidth;
+var remSize = viewWidth/10;
+document.documentElement.style.fontSize = remSize + 'px';
+
 // 注意接口在./config/index.js中proxyTable代理中rewrite：、/api对应http://v.juhe.cn
 const juheBaseUrl = '/api/toutiao/index?type=';
 const APIkey = '2b4ea65cb2932dd7491382960699bc17';
@@ -89,6 +93,7 @@ export default {
 }
 
 /*2.新闻类别选择、加载、新闻标题*/
+/*标题、类别响应式*/
 #news-classify {
     text-align: center;
 }
@@ -96,12 +101,22 @@ export default {
     display: inline-block;
     line-height: 30px;
 }
+@media screen and (max-width:414px) {
+    #news-classify h2 {
+        display: block;
+    }
+}
 .news-select {
-    width: 200px;
+    width: 300px;
     height: 30px;
     border: 1px solid #b62;
     cursor: pointer;
     outline: none;
+}
+@media screen and (max-width:720px) {
+    .news-select {
+        width: 150px;
+    }
 }
 
 /*3. 新闻标题*/
@@ -117,6 +132,7 @@ export default {
     margin: 0 auto;
 }
 
+/*通用*/
 * {
     margin: 0;
     padding: 0;
@@ -144,4 +160,5 @@ a img,
 div img{
     vertical-align: top;
 }
+
 </style>
