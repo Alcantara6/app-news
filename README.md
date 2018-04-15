@@ -48,6 +48,33 @@
     }
 }
 ```
+```css
+/*标题、类别响应式*/
+#news-classify {
+    text-align: center;
+}
+#news-classify h2 {
+    display: inline-block;
+    line-height: 30px;
+}
+@media screen and (max-width:414px) {
+    #news-classify h2 {
+        display: block;
+    }
+}
+.news-select {
+    width: 300px;
+    height: 30px;
+    border: 1px solid #b62;
+    cursor: pointer;
+    outline: none;
+}
+@media screen and (max-width:720px) {
+    .news-select {
+        width: 150px;
+    }
+}
+```
 
 ### 3.2. axios跨域请求
 
